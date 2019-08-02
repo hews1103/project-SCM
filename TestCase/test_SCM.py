@@ -75,8 +75,58 @@ class Test_scm():
 
         time.sleep(3)
 
-    def kcpp(self,base):
+    def test_kcpp(self,base):
         # 点击库存品牌
         base.click('点击库存品牌', '''//*[@id="app"]/div/div/div[1]/div[1]/div/ul/div[2]/li/div''')
         #点击AHC
         base.click('点击AHC','''//*[@id="app"]/div/div/div[1]/div[1]/div/ul/div[2]/li/ul/a[1]''')
+        time.sleep(1)
+        # 点击出库金额
+        base.click('点击未出库','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/div[1]/div[1]/div[2]/p[1]/div[2]/label[2]''')
+        base.click('点击已出库','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/div[1]/div[1]/div[2]/p[1]/div[2]/label[1]''')
+        # 点击折损状态
+        base.click('点击数量','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div[1]/div/div[2]/label[2]''')
+        base.click('点击金额','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[2]/div/div[1]/div/div[2]/label[1]''')
+        # 滑动到底
+        base.scroll_screen('滑动到底')
+        # 点击所有品牌达成
+        base.click('点击所有品牌达成','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[2]/div/div[2]/div[4]/div/div[1]/div/span''')
+        time.sleep(2)
+        # 品牌周转达成-国外
+        base.click('点击国内外','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[1]/div/div[1]/div/span''')
+        base.click('点击国外','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[1]/div/div[2]/ul[2]/li[2]''')
+        # 输入品牌
+        base.send_keys('输入品牌名','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[2]/div/div[1]/div/input''','萌蒂')
+        time.sleep(1)
+        # 输入pm
+        base.send_keys('输入pm','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[3]/div/div[1]/div/input''','赵怡玮')
+        time.sleep(1)
+        # 输入起止周转率目标
+        base.send_keys('输入周转率目标起始值','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[4]/div[1]/input''',0)
+        base.send_keys('输入周转率目标最大值','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[4]/div[2]/input''',100)
+        # 输入起止周转率
+        base.send_keys('输入周转率起始值','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[5]/div[1]/input''',0)
+        base.send_keys('输入周转率最大值','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[5]/div[2]/input''',100)
+        # 输入起止周转天数
+        base.send_keys('输入起始周转天数','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[6]/div[1]/input''',0)
+        base.send_keys('输入最大周转天数','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[6]/div[2]/input''',100)
+        # 点击目标达成(等待开发完成)
+        # 点击年月
+        time.sleep(2)
+        base.click('点击起始年月','''(//input[@class='ivu-input ivu-input-default ivu-input-with-suffix'])[1]''')
+        time.sleep(1)
+        base.click('点击起始年','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[1]/div[2]/div/div/div/div[1]/span[2]/span[1]''')
+        time.sleep(1)
+        base.click('点击起始年2019','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[1]/div[2]/div/div/div/div[2]/div/span[10]/em''')
+        time.sleep(1)
+        base.click('点击起始月3','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[1]/div[2]/div/div/div/div[2]/div/span[3]/em''')
+        time.sleep(1)
+        base.click('点击终止年月','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[2]/div[1]/div/input''')
+        base.click('点击终止年','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[2]/div[2]/div/div/div/div[1]''')
+        base.click('点击终止年2019','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[2]/div[2]/div/div/div/div[2]/div/span[10]/em''')
+        base.click('点击终止月8','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/ul/li[8]/div[2]/div[2]/div/div/div/div[2]/div/span[8]/em''')
+        # 点击查询
+        base.click('点击查询','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/button[1]/span''')
+        # 点击重置
+        base.click('点击重置','''//*[@id="app"]/div/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/button[2]/span''')
+        time.sleep(3)
